@@ -20,8 +20,8 @@ public:
     bool falling = false;
     bool longpress = false;
 
-    // Pin-Nummer, true = negative Logik, Debounce-Zeit [ms], Zeitgrenze für langen Druck [ms]
-    void init(uint8_t, bool, uint8_t, uint16_t);
+    // Pin-Nummer, Pin-Mode, Debounce-Zeit [ms], Zeitgrenze für langen Druck [ms]
+    void init(uint8_t, uint8_t, uint8_t, uint16_t);
 
     void poll();
 
@@ -30,7 +30,7 @@ public:
 
 private:
     bool in = false;
-    bool neg = false;
+    uint8_t mode = false;
     bool db_last = false;
     bool last = false;
     unsigned long lasttime = 0;

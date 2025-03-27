@@ -17,15 +17,15 @@ void blinker::poll()
 {
     if (!enable)
     {
-        digitalWrite(pin1, neg1 ? HIGH : LOW);
-        digitalWrite(pin2, neg2 ? HIGH : LOW);
+        // digitalWrite(pin1, neg1 ? HIGH : LOW);
+        // digitalWrite(pin2, neg2 ? HIGH : LOW);
         return;
     }
     else if (millis() - lastblink > blinkTime)
     {
         // Serial.println(".");
         digitalWrite(pin1, neg1 ? !blinkState : blinkState);
-        digitalWrite(pin2, neg1 ? !blinkState : blinkState);
+        digitalWrite(pin2, neg1 ? blinkState : !blinkState);
         blinkState = !blinkState;
         lastblink = millis();
     }

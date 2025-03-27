@@ -5,7 +5,7 @@
 
 /*
     ----------- INFO -------------
-    Dise Struktur implementiert einen Wechselblinker auf zwei bliebige Pins.
+    Dise Klasse implementiert einen Wechselblinker auf zwei bliebige Pins.
     In der init-Methode können die Pin-Nummern definiert werden. Außerdem ist es
     möglich eine negation des Ausgangs direkt anzugeben. Die poll-Methode muss
     bei jedem Loop ausgeführt werden.

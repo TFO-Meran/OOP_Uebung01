@@ -4,21 +4,21 @@
 // ************************** button ******************************************
 // ****************************************************************************
 
-void button::init(uint8_t _pinNr, bool _neg, uint8_t _debounce_time, uint16_t _longpress_time)
+void button::init(uint8_t _pinNr, uint8_t _mode, uint8_t _debounce_time, uint16_t _longpress_time)
 {
     pinNr = _pinNr;
-    neg = _neg;
+    mode = _mode;
     debounce_time = _debounce_time;
     longpress_time = _longpress_time;
 
-    pinMode(pinNr, INPUT);
+    pinMode(pinNr, mode);
     debounced = db_last = last = digitalRead(pinNr); // ..damit nicht schon beim Start eine Flanke ausgelöst wird..
 }
 
 void button::poll()
 {
     in = digitalRead(pinNr);
-    in = neg ? !in : in;
+    in = ((mode == INPUT_PULLUP) ? !in : in);
     debounce();
     check_edge();
     check_longpress();

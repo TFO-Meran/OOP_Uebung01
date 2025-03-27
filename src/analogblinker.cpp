@@ -21,8 +21,8 @@ void analogblinker::poll()
 {
     if (!enable)
     {
-        analogWrite(pin1, 0);
-        analogWrite(pin2, 0);
+        // analogWrite(pin1, 0);
+        // analogWrite(pin2, 0);
         return;
     }
     else if (millis() - lastpoll > polltime)
@@ -58,3 +58,6 @@ void analogblinker::setBlinkTime(uint16_t _blinktime)
     else
         blinkTime = _blinktime;
 }
+
+void analogblinker::on() { enable = true; }   // setter-Methode zum Einschalten des Blinkers
+void analogblinker::off() { enable = false; } // setter-Methode zum Ausschalten des Blinkers
